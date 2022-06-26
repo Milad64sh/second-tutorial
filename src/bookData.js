@@ -19,5 +19,15 @@ const books = [
     book: 'book number four',
     author: 'peter doe',
   },
+  {
+    id: 5,
+    book: 'book number five',
+    author: 'peter doe',
+  },
+  {
+    id: 6,
+    book: 'book number six',
+    author: 'peter doe',
+  },
 ];
 export default books;
