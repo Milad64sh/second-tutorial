@@ -1,8 +1,8 @@
 import React from 'react';
 import BookList from './BookList';
+import './index.css';
 const App = () => (
   <section>
-    <h1>this is our application</h1>
     <BookList />
   </section>
 );

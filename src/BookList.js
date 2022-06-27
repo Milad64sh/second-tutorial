@@ -9,6 +9,9 @@ export default class BookList extends Component {
       books: bookData,
     };
   }
+  handleDelete = () => {
+    console.log(`i'm from parent component`);
+  };
 
   render() {
     const books = this.state.books.map((item) => item.book);
@@ -17,7 +20,11 @@ export default class BookList extends Component {
       <section>
         <h3>this is our bookList</h3>
         {this.state.books.map((item) => (
-          <Book key={item.id} info={item}></Book>
+          <Book
+            key={item.id}
+            info={item}
+            handleDelete={this.handleDelete}
+          ></Book>
         ))}
       </section>
     );
