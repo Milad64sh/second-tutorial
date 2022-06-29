@@ -2,9 +2,17 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
+section {
+  background: #6e6e6ebe;
+  border-radius: 5px;
+}
 h1 {
   text-transform: uppercase;
   letter-spacing: 0.15rem;
+}
+p {
+  margin: 2.5rem;
+  padding: 0.5rem;
 }
 .btn {
   padding: 10px 28px;
@@ -26,12 +34,13 @@ h1 {
   cursor: pointer;
 }
 form {
-  margin: 2rem;
+  margin: 0.5rem 2rem;
+  padding: 10px;
 }
 input {
   width: 70vw;
   display: block;
   margin: 0.5rem;
-  border-radius: 3px;
+  border-radius: 5px;
   height: 40px;
 }

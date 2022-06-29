@@ -2,55 +2,23 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Form extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    people: [],
-  };
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: [event.target.value],
-    });
-  };
   handleSubmit = (e) => {
     e.preventDefault();
-    const firstName = this.state.firstName;
-    const lastName = this.state.lastName;
-    if (firstName.length > 0 && lastName.length > 0) {
-      const person = `${firstName} ${lastName} `;
-      this.setState({
-        people: [...this.state.people, person],
-        firstName: '',
-        lastName: '',
-      });
-    }
+    const name = this.refs.myName;
+    const nameValue = name.value;
+    const email = this.email.value;
   };
   render() {
     return (
       <section>
-        <article>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type='text'
-              name='firstName'
-              value={this.state.firstName}
-              onChange={this.handleChange}
-            />
-            <input
-              type='text'
-              name='lastName'
-              value={this.state.lastName}
-              onChange={this.handleChange}
-            />
-            <button className='btn' type='submit'>
-              submit
-            </button>
-          </form>
-        </article>
-        <article>
-          <h1>people</h1>
-          <div>{this.state.people}</div>
-        </article>
+        <form onSubmit={this.handleSubmit}>
+          <input type='text' ref='myName' />
+          <input type='email' ref={(email) => (this.email = email)} />
+          <button className='btn' type='submit'>
+            submit
+          </button>
+        </form>
+        <p>hello world</p>
       </section>
     );
   }
