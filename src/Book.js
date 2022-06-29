@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 export default class book extends Component {
   constructor(props) {
@@ -29,11 +30,13 @@ export default class book extends Component {
     };
     return (
       <article className='book'>
-        <img src={img} width='150' alt='book' />
+        <img src={img} alt='book' />
         <div>
-          <h4>Title : {title}</h4>
+          <h4>
+            Title : <span>{title}</span>
+          </h4>
           <h5>Author: {author}</h5>
-          <button type='button' onClick={this.handleInfo}>
+          <button className='btn' type='button' onClick={this.handleInfo}>
             toggle info
           </button>
           {checkInfo(this.state.showInfo)}
