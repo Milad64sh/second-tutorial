@@ -1,5 +1,13 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
 .btn {
-  padding: 14px 28px;
+  padding: 10px 28px;
   color: #6e6e6e;
   font-weight: 600;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -10,9 +18,20 @@
   background: #ebe7e7;
   box-shadow: 4x 4px 10px #00000033, -4px -4px 10px #ffffffcc;
   transition: all 0.3s;
+  margin: 0 0.5rem;
 }
 .btn:hover {
   box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.2),
     inset -4px -4px 10px rgba(255, 255, 255, 0.8);
   cursor: pointer;
+}
+form {
+  margin: 2rem;
+}
+input {
+  width: 70vw;
+  display: block;
+  margin: 0.5rem;
+  border-radius: 3px;
+  height: 40px;
 }

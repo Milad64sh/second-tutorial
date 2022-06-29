@@ -1,49 +1,56 @@
 import React, { Component } from 'react';
 import './App.css';
-import PropTypes from 'prop-types';
-const Person = ({ img, name, age }) => {
-  return (
-    <article>
-      <img src={img} alt='person' />
-      <h4>name : {name}</h4>
-      <h4>age : {age}</h4>
-    </article>
-  );
-};
-Person.propTypes = {
-  img: PropTypes.string,
-  name: PropTypes.string,
-  age: PropTypes.number,
-};
 
-class PersonList extends Component {
+class Form extends Component {
   state = {
-    people: [
-      {
-        id: 1,
-        img: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
-        name: 'john',
-        age: 24,
-      },
-      {
-        id: 2,
-        img: 'https://randomuser.me/api/portraits/thumb/men/73.jpg',
-        name: 'bob',
-        age: 34,
-      },
-    ],
+    firstName: '',
+    lastName: '',
+    people: [],
+  };
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: [event.target.value],
+    });
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const firstName = this.state.firstName;
+    const lastName = this.state.lastName;
+    if (firstName.length > 0 && lastName.length > 0) {
+      const person = `${firstName} ${lastName} `;
+      this.setState({
+        people: [...this.state.people, person],
+        firstName: '',
+        lastName: '',
+      });
+    }
   };
   render() {
     return (
       <section>
-        {this.state.people.map((person) => (
-          <Person
-            key={person.id}
-            img={person.img}
-            name={person.name}
-            age={person.age}
-          />
-        ))}
+        <article>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type='text'
+              name='firstName'
+              value={this.state.firstName}
+              onChange={this.handleChange}
+            />
+            <input
+              type='text'
+              name='lastName'
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+            <button className='btn' type='submit'>
+              submit
+            </button>
+          </form>
+        </article>
+        <article>
+          <h1>people</h1>
+          <div>{this.state.people}</div>
+        </article>
       </section>
     );
   }
@@ -51,6 +58,6 @@ class PersonList extends Component {
 
 export default class App extends Component {
   render() {
-    return <PersonList />;
+    return <Form />;
   }
 }
